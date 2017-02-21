@@ -39,13 +39,15 @@ def naked_twins(values):
         the values dictionary with the naked twins eliminated from peers.
     """
     for unit in unitlist:
-        double_values_list = [(box, values[box]) for box in unit if len(values[box]) == 2]
+        # find all box with its double values in the unit
+        double_values_list = [(box, values[box]) for box in unit if len(values[box]) == 2]  
         if len(double_values_list) > 1:
             double_values_boxes, double_values = zip(*double_values_list)
-            for value in set(double_values):
+            for value in set(double_values):  # iterate each double values to check if it has twins
                 twin_boxes = [box for box in double_values_boxes if values[box] == value]
                 if len(twin_boxes) == 2:
-                    for box in [box for box in unit if box not in twin_boxes]:
+                    # iterate each box inside the unit to remove the twins value
+                    for box in [box for box in unit if box not in twin_boxes]:  
                         values[box] = values[box].replace(value[0], '').replace(value[1], '')
     return values
 

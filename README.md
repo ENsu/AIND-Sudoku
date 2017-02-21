@@ -3,11 +3,11 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: By adding another constraint function, the *naked_twins* function, the Sudoku Solver has a chance to remove some possible values inside the box according to the naked twins rule. The new state of the problem may has less choices in some of its boxes, and some other contraint function, in this case, *eliminate* and *only_choice* have another chance to remove more choices inside each box, compared to the problem applied by *naked_twins* before.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: By adding the two diagonal lines as two extra unit, the existed contrain function has more unit to take care of. Each contraint function add more contraint on boxes on the diagonal lines and has a chance to remove more choices inside these boxes. These extra eliminated choices causes the contrain propagation.
 
 ### Install
 
